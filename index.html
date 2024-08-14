@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donasi Peduli</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="modal.css" />
+    <link rel="icon" href="logo.png" />
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Donasi Peduli</h1>
+      <form id="donation-form">
+        <fieldset>
+          <legend>Select Gift Frequency</legend>
+          <div class="time">
+            <div class="radio-container">
+              <input
+                type="radio"
+                id="monthly"
+                name="frequency"
+                value="monthly"
+                checked
+              />
+              <label for="monthly">Monthly</label>
+            </div>
+            <div class="radio-container">
+              <input
+                type="radio"
+                id="one-time"
+                name="frequency"
+                value="one-time"
+              />
+              <label for="one-time">One-time</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Select Amount</legend>
+          <div class="value">
+            <span class="money" data-amount="12">$12</span>
+            <span class="money" data-amount="25">$25</span>
+            <span class="money" data-amount="40">$40</span>
+            <span class="money" data-amount="55">$55</span>
+            <span class="money" data-amount="65">$65</span>
+          </div>
+          <div class="custom-amount">
+            <label for="custom-amount">Or enter custom amount:</label>
+            <input
+              type="number"
+              id="custom-amount"
+              name="custom-amount"
+              min="1"
+              step="1"
+              placeholder="Enter amount"
+            />
+          </div>
+        </fieldset>
+
+        <div class="confirm">
+          <input type="checkbox" id="cover-transaction" />
+          <label for="cover-transaction"
+            >Yes, I'll generously add $0.30 each month to cover the
+            transaction</label
+          >
+        </div>
+
+        <div class="input">
+          <label for="enter-your-name">Name</label>
+          <input type="text" id="enter-your-name" name="name" required />
+
+          <label for="enter-your-email">Email</label>
+          <input type="email" id="enter-your-email" name="email" required />
+        </div>
+
+        <div class="honor">
+          <label for="honor-name">Give in honor of another person</label>
+          <input
+            type="text"
+            id="honor-name"
+            name="honor-name"
+            placeholder="Enter name"
+          />
+        </div>
+
+        <div id="qrcode" class="qrcode"></div>
+        <button type="submit" id="donate-btn">Donate Now</button>
+      </form>
+      <div id="donation-summary">
+        <h2>Total Donations Collected: $<span id="total-donations">0</span></h2>
+      </div>
+      <footer>
+        <ul>
+          <li>Wibowo Yunanto Sri Saputra (14)</li>
+          <li>Rendra Bagus Anggoro (11)</li>
+          <li>Dina Marsha (4)</li>
+          <li>Winni Lestari (15)</li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- Modal -->
+    <div id="confirmation-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Confirm Your Donation</h2>
+        <p id="donation-details"></p>
+        <button id="confirm-donation">Confirm</button>
+      </div>
+    </div>
+  </body>
+</html>

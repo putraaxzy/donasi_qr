@@ -1,0 +1,247 @@
+:root {
+  --main-bg-color: rgb(236, 238, 255);
+  --container-bg-color: white;
+  --primary-color: rgb(8, 8, 67);
+  --secondary-color: slateblue;
+  --border-radius: 12px;
+  --input-border-color: #ccc;
+  --hover-bg-color: black;
+  --hover-text-color: white;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--main-bg-color);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 75%; /* Memperlebar container */
+  padding: 30px;
+  margin: 0 auto; /* Agar tetap di tengah */
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px; /* Membatasi lebar maksimal */
+}
+
+.container h1 {
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.container fieldset {
+  border: none;
+  margin-bottom: 20px;
+}
+
+.container legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.time {
+  display: flex;
+  justify-content: space-around;
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.time input {
+  display: none;
+}
+
+.time label {
+  padding: 10px;
+  border: 2px solid var(--input-border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.time input:checked + label {
+  background-color: var(--hover-bg-color);
+  color: var(--hover-text-color);
+}
+
+.value {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.money {
+  border: 2px solid var(--input-border-color);
+  border-radius: var(--border-radius);
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.money.active,
+.money:hover {
+  background-color: var(--hover-bg-color);
+  color: var(--hover-text-color);
+}
+
+.custom-amount {
+  margin-top: 10px;
+}
+
+.custom-amount label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.custom-amount input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--border-radius);
+}
+
+.confirm {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.confirm input {
+  margin-right: 10px;
+}
+
+.input,
+.honor {
+  margin-bottom: 20px;
+}
+
+.input label,
+.honor label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input input,
+.honor input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  color: var(--hover-text-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+.blue {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.qrcode {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.qrcode.show-qr {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+  border-top: 2px solid var(--input-border-color);
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+footer ul li {
+  padding: 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--main-bg-color);
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+footer ul li:hover {
+  background-color: var(--container-bg-color);
+}
+
+/* Animation for button */
+@keyframes button-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+button.animate-button {
+  animation: button-animation 0.5s;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    margin: 0 10px;
+  }
+
+  .time {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .value {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .value span {
+    flex: 1 1 45%;
+  }
+}
